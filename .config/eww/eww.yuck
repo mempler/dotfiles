@@ -1,0 +1,44 @@
+;
+; Variables
+;
+(defpoll clock_time :interval "5m" "date +\%I")
+(defpoll clock_minute :interval "5s" "date +\%M")
+(defpoll clock_date :interval "10h" "date '+%d/%m'")
+
+;
+; Windows
+;
+(defwindow bar :monitor 0 
+               :geometry (geometry :x "0px"
+                                   :y "12px"
+                                   :width "99%"
+                                   :height "32px"
+                                   :anchor "top center")
+               :exclusive true
+  (box
+    (left)
+    (center)
+    (right)))
+
+;
+; Layout
+;
+(defwidget left []
+  (box))
+
+(defwidget center []
+  (box))
+
+(defwidget right []
+  (box
+    (clock)))
+
+;
+; Widgets
+;
+(defwidget clock []
+    (box :class "module" :space-evenly "false" :orientation "h" :spacing "3" 
+      (label :text clock_time :class "clock_time_class")
+      (label :text "󰇙" :class "clock_time_sep")
+      (label :text clock_minute :class "clock_minute_class")))
+
