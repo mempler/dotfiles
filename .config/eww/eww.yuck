@@ -1,21 +1,22 @@
 ;
 ; Variables
 ;
-(defpoll clock_time :interval "5m" "date +\%I")
+(defpoll clock_hour :interval "5m" "date +\%I")
 (defpoll clock_minute :interval "5s" "date +\%M")
-(defpoll clock_date :interval "10h" "date '+%d/%m'")
+
+(deflisten workspace "scripts/workspace.sh")
 
 ;
 ; Windows
 ;
 (defwindow bar :monitor 0 
                :geometry (geometry :x "0px"
-                                   :y "12px"
+                                   :y "16px"
                                    :width "99%"
-                                   :height "32px"
+                                   :height "40px"
                                    :anchor "top center")
                :exclusive true
-  (box
+  (box :space-evenly false
     (left)
     (center)
     (right)))
@@ -24,21 +25,27 @@
 ; Layout
 ;
 (defwidget left []
-  (box))
+  (box :class "layout left" :space-evenly false
+    ))
 
 (defwidget center []
-  (box))
+  (box :class "layout center" :space-evenly false :vexpand true :hexpand true
+    ))
 
 (defwidget right []
-  (box
+  (box :class "layout right" :space-evenly false :spacing 12
+    (systray :prepend-new true :icon-size 20 :spacing 12)
     (clock)))
 
 ;
 ; Widgets
 ;
 (defwidget clock []
-    (box :class "module" :space-evenly "false" :orientation "h" :spacing "3" 
-      (label :text clock_time :class "clock_time_class")
-      (label :text "󰇙" :class "clock_time_sep")
-      (label :text clock_minute :class "clock_minute_class")))
+    (box :class "module" :space-evenly false 
+      (label :text clock_hour)
+      (label :text ":")
+      (label :text clock_minute)))
+
+(defwidget workspaces []
+  (literal :content workspace))
 
