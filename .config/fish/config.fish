@@ -1,6 +1,10 @@
 set -gx EDITOR nvim
 set -gx WORKSPACE $HOME/workspace
 
+if test -f ~/.config/fish/secrets.fish
+    source ~/.config/fish/secrets.fish
+end
+
 fish_add_path -g "$HOME/.cargo/bin"
 fish_add_path -g "$HOME/.local/bin"
 
