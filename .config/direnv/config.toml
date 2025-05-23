@@ -1,9 +1,0 @@
-[global]
-load_dotenv = true
-trict_env = true
-
-[whitelist]
-prefix = [
-  "/home/robin/workspace",
-  "/Users/robin/workspace"
-]

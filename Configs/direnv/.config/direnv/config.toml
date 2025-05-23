@@ -1,0 +1,15 @@
+[global]
+load_dotenv = true
+strict_env = true
+
+[whitelist]
+prefix = [
+    # Windows
+    "C:\\Users\\robin\\workspace",
+
+    # Linux
+    "/home/robin/workspace",
+
+    # macOS
+    "/Users/robin/workspace",
+]
