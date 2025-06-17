@@ -9,3 +9,6 @@ install-fish-env:
     tuckr add fastfetch
     tuckr add nvim
     tuckr add tmux
+
+install-hyprland:
+    tuckr add hyprland
