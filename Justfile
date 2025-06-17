@@ -12,3 +12,5 @@ install-fish-env:
 
 install-hyprland:
     tuckr add hyprland
+    tuckr add kitty
+

@@ -1,0 +1,6 @@
+# Terminal Requirements
+starship zoxide fastfetch bat nvim eza lua51 luarocks stylua ast-grep fd lazygit fzf tree-sitter tree-sitter-cli nodejs lldb imagemagick
+
+# Hyprland Requirements
+kitty hyprland eww xdg-desktop-portal-hyprland xdg-desktop-portal-gtk
+
